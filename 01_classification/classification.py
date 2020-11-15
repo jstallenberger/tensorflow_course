@@ -1,3 +1,4 @@
+import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_breast_cancer
@@ -48,3 +49,17 @@ plt.plot(r.history['accuracy'], label='acc')
 plt.plot(r.history['val_accuracy'], label='val_acc')
 plt.legend()
 plt.savefig("accuracy.png")
+
+# Making predictions
+
+P = model.predict(X_test)
+print(P) # They are outputs of the sigmoid, interpreted as probabilities p(y = 1 | x)
+
+# Round to get the actual predictions
+# Note: has to be flattened since the targets are size (N,) while the predictions are size (N,1)
+P = np.round(P).flatten()
+print(P)
+
+# Calculate the accuracy, compare it to evaluate() output
+print("Manually calculated accuracy: ", np.mean(P == y_test))
+print("Evaluate output: ", model.evaluate(X_test, y_test))
