@@ -27,6 +27,12 @@ model = tf.keras.models.Sequential([
   tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
+# Alternatively:
+
+# model = tf.keras.models.Sequential()
+# model.layers.add(tf.keras.layers.Dense(1, input_shape=(D,), activation='sigmoid'))
+
+
 model.compile(optimizer='adam',
               loss='binary_crossentropy',
               metrics=['accuracy'])
@@ -63,3 +69,15 @@ print(P)
 # Calculate the accuracy, compare it to evaluate() output
 print("Manually calculated accuracy: ", np.mean(P == y_test))
 print("Evaluate output: ", model.evaluate(X_test, y_test))
+
+
+# Saving the model
+
+model.save("/project/01_classification/classification_model.h5")
+
+# Loading the model
+# If loading from h5 format fails, don't define the Input layer explicitly - check commented alternative model initialization
+
+model = tf.keras.models.load_model("/project/01_classification/classification_model.h5")
+print(model.layers)
+print("Evaluate output on loaded model: ", model.evaluate(X_test, y_test))
