@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('moore.csv', header=None).values
+data = pd.read_csv('/project/02_regression/moore.csv', header=None).values
 X = data[:,0].reshape(-1, 1) # make it a 2-D array of size N x D where D = 1
 Y = data[:,1]
 
@@ -36,7 +36,7 @@ scheduler = tf.keras.callbacks.LearningRateScheduler(schedule)
 r = model.fit(X, Y, epochs=200, callbacks=[scheduler])
 
 plt.plot(r.history['loss'], label='loss')
-plt.savefig('loss.png')
+plt.savefig('/project/02_regression/loss.png')
 
 # Get the slope of the line
 # The slope of the line is related to the doubling rate of transistor count
@@ -54,7 +54,7 @@ print("Time to double:", np.log(2) / a)
 Yhat = model.predict(X).flatten()
 plt.scatter(X, Y)
 plt.plot(X, Yhat)
-plt.savefig('predicted_line.png')
+plt.savefig('/project/02_regression/predicted_line.png')
 
 # Manual calculation
 

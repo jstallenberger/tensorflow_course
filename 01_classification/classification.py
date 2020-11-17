@@ -41,14 +41,14 @@ print("Test score: ", model.evaluate(X_test, y_test))
 plt.plot(r.history['loss'], label='loss')
 plt.plot(r.history['val_loss'], label='val_loss')
 plt.legend()
-plt.savefig("loss.png")
+plt.savefig("/project/01_classification/loss.png")
 
 plt.close()
 
 plt.plot(r.history['accuracy'], label='acc')
 plt.plot(r.history['val_accuracy'], label='val_acc')
 plt.legend()
-plt.savefig("accuracy.png")
+plt.savefig("/project/01_classification/accuracy.png")
 
 # Making predictions
 
