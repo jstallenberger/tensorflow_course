@@ -38,6 +38,8 @@ r = model.fit(X, Y, epochs=200, callbacks=[scheduler])
 plt.plot(r.history['loss'], label='loss')
 plt.savefig('/project/02_regression/loss.png')
 
+plt.close()
+
 # Get the slope of the line
 # The slope of the line is related to the doubling rate of transistor count
 print(model.layers)
