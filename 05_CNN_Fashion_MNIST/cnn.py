@@ -4,14 +4,12 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.layers import Input, Conv2D, Dense, Flatten, Dropout
 from tensorflow.keras.models import Model
 
-# https://github.com/tensorflow/tensorflow/issues/24496
-from tensorflow.compat.v1 import ConfigProto
-from tensorflow.compat.v1 import InteractiveSession
-
-config = ConfigProto()
-config.gpu_options.allow_growth = True
-session = InteractiveSession(config=config)
-
+# For Tensoflow versions < 2.3: https://github.com/tensorflow/tensorflow/issues/24496
+# from tensorflow.compat.v1 import ConfigProto
+# from tensorflow.compat.v1 import InteractiveSession
+# config = ConfigProto()
+# config.gpu_options.allow_growth = True
+# session = InteractiveSession(config=config)
 
 # Load in the data
 fashion_mnist = tf.keras.datasets.fashion_mnist
