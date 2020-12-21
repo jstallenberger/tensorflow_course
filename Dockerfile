@@ -1,13 +1,13 @@
-FROM tensorflow/tensorflow:latest-gpu-py3-jupyter
+FROM tensorflow/tensorflow:latest-gpu
 
 LABEL maintainer="Jozsef Stallenberger"
 
 RUN apt-get update
 
 RUN pip3 install --upgrade pip && \
-    pip3 install joblib scikit-learn sklearn pytz pandas seaborn
+    pip3 install numpy matplotlib pandas joblib scikit-learn sklearn pytz seaborn
 
-EXPOSE 8888 6006
+EXPOSE 6006
 
 VOLUME /project
 WORKDIR /project
