@@ -104,3 +104,16 @@ def plot_confusion_matrix(cm, classes,
 p_test = model.predict(x_test).argmax(axis=1)
 cm = confusion_matrix(y_test, p_test)
 plot_confusion_matrix(cm, list(range(10)))
+
+
+# Labels mapping
+labels = '''T-shirt/top
+Trouser
+Pullover
+Dress
+Coat
+Sandal
+Shirt
+Sneaker
+Bag
+Ankle boot'''.split()
