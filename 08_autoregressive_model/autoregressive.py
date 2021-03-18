@@ -55,7 +55,7 @@ plt.savefig("/project/08_autoregressive_model/loss.png")
 plt.close()
 
 
-# "Wrong" forecast using true targets - do not do this
+# "Wrong" (one-step) forecast using true targets - do not do this
 
 validation_target = Y[-N//2:] # second half of Y
 validation_predictions = []
@@ -78,7 +78,7 @@ plt.savefig("/project/08_autoregressive_model/wrong_forecast.png")
 plt.close()
 
 
-# Forecasting future values in correct way (use only self-predictions for making future predictions)
+# Forecasting future values in correct way (multi-step - use only self-predictions for making future predictions)
 
 validation_target = Y[-N//2:] # second half of Y
 validation_predictions = []
