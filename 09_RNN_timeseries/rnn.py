@@ -33,7 +33,7 @@ print("X.shape: ", X.shape, " Y.shape: ", Y.shape)
 
 # Try autoregressive RNN model
 i = Input(shape=(T, 1))
-x = SimpleRNN(5, activation='relu')(i)
+x = SimpleRNN(5, activation='relu')(i) # default activation for SimpleRNN is tanh
 x = Dense(1)(x)
 model = Model(i, x)
 model.compile(
